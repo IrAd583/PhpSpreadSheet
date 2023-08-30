@@ -18,8 +18,13 @@ jobs:
         with:
           php-version: '7.4'  # Adjust the PHP version as needed
 
+      #- name: Install phpspreadsheet
+      #  run: composer require phpoffice/phpspreadsheet
+
       - name: Install phpspreadsheet
-        run: composer require phpoffice/phpspreadsheet
+        run:
+          composer require rector/rector rector/rector-phpoffice phpoffice/phpspreadsheet --dev
+          vendor/bin/rector init 
 
       - name: Create artifacts
         uses: actions/upload-artifact@v2
