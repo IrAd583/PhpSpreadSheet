@@ -21,6 +21,12 @@ jobs:
       - name: Install phpspreadsheet
         run: composer require phpoffice/phpspreadsheet
 
+      - name: Print Files
+        shell: bash
+        run: |
+          echo "All Files:"
+          ls -R
+
       - name: Create artifacts
         uses: actions/upload-artifact@v2
         with:
