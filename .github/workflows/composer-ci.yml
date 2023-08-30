@@ -1,0 +1,25 @@
+name: PHP Composer CI
+
+on:
+  push:
+    branches:
+      - main  # Adjust this branch name if needed
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '7.4'  # Adjust the PHP version as needed
+
+      - name: Install Composer dependencies
+        run: composer install
+
+      - name: Run tests
+        run: vendor/bin/phpunit  # Adjust the PHPUnit command if needed
